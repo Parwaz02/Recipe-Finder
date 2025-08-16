@@ -1,21 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Finder</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <h1>Recipe Finder</h1>
+  <div id="app">
+    <!-- Search Page -->
+    <div id="search-page" class="page">
+      <div class="app-container">
+        <h1>🍳 Recipe Finder</h1>
 
-    <div id="search-container">
-        <input type="text" id="ingredient-input" placeholder="Enter an ingredient (e.g., chicken)">
-        <button id="search-button">Search</button>
+        <div id="search-container">
+          <input type="text" id="ingredient-input" placeholder="Enter an ingredient (e.g., chicken)" />
+          <button id="search-button">Search</button>
+        </div>
+
+        <div id="recipes" aria-live="polite"></div>
+      </div>
     </div>
 
-    <div id="recipes"></div>
+    <!-- Recipe Details Page -->
+    <div id="recipe-page" class="page">
+      <div class="recipe-detail-container">
+        <button id="back-button" aria-label="Go back">⬅ Back</button>
 
-    <script src="script.js"></script>
+        <h2 id="detail-title"></h2>
+        <img id="detail-img" alt="Recipe image"/>
+
+        <h3>Ingredients</h3>
+        <ul id="detail-ingredients"></ul>
+
+        <h3>Instructions</h3>
+
+        <!-- Stepper header (progress + label) -->
+        <div class="stepper-header">
+          <span id="step-indicator">Step 1 of 1</span>
+          <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+        </div>
+
+        <!-- Step-by-step slider (buttons unchanged) -->
+        <div id="instructions-container">
+          <p id="instruction-text"></p>
+          <div class="nav-buttons">
+            <button id="prev-step">⬅ Prev</button>
+            <button id="next-step">Next ➡</button>
+          </div>
+        </div>
+
+        <!-- Optional: full steps list below -->
+        <ol id="all-steps" class="all-steps"></ol>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
